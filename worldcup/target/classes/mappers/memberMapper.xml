@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.ideal.worldcup.mapper.memberMapper">
+ 	 
+ 	<!--  <select id="selectMember" resultType="memberVO">
+ 	 
+ 	 
+ 	 </select> -->
+ 	 
+ 	 <select id="selectLogin" resultType="memberVO">
+ 	 	SELECT M_NUM, M_NAME FROM MEMBER WHERE M_ID = #{m_id} and M_PW = #{m_pw}
+ 	 </select>
+ 	 
+ 	 <select id="selectId" resultType="memberVO">
+ 	 	SELECT M_ID FROM MEMBER WHERE M_ID = #{m_id}
+ 	 </select>
+ 	 
+ 	 <select id="selectEmail" resultType="memberVO">
+ 	 	SELECT M_EMAIL FROM MEMBER WHERE M_EMAIL = #{m_email}
+ 	 
+ 	 </select>
+ 	 <select id="selectNickname" resultType="memberVO">
+ 	 	SELECT M_NICKNAME FROM MEMBER WHERE M_NICKNAME = #{m_nickname}
+ 	 
+ 	 </select>
+ 	 <insert id="insertJoin" parameterType="memberVO">
+ 		INSERT INTO MEMBER(M_ID, M_NAME, M_DATE, M_EMAIL, M_NICKNAME, M_PW) VALUES(#{m_id}, #{m_name}, #{m_date}, #{m_email}, #{m_nickname}, #{m_pw} )
+ 	</insert>
+ 	
+ 		<select id="selectMember" resultType="memberVO">
+ 			SELECT * FROM MEMBER WHERE M_NUM = #{M_NUM}
+ 		</select>
+ 	 <!-- 
+        mybatis-config.xml의 typeAlias에 등록해두지 않았다면 
+        
+        <select id="selectMember" resultType="com.example.dto.MemberVO" >
+            SELECT ID, PW ,NAME FROM TEST
+        </select>
+        
+        이렇게 해야 한다.
+    -->
+    <!-- 
+    <select id="selectMember" resultType="memberVO">
+        SELECT ID, PW ,NAME FROM TEST
+    </select> -->
+    
+    <!-- join.do -->
+   <!--  <select id="selectMember" resultType="memberVO">
+    	SELECT M_NUM, M_ID, M_NAME, M_DATE, M_EMAIL, M_NICK, M_PW FROM MEMBER;
+    
+    </select>
+    <select id ="selectId" resultType="memberVO">
+    	SELECT M_ID FROM MEMBER WHERE M_ID = #{m_id}
+    </select>
+	
+	<select id ="selectEmail" resultType="memberVO">
+		SELECT M_EMAIL FROM MEMBER WHERE M_EMAIL = #{m_email}
+	</select>
+	
+	<select id ="selectNick" resultType="memberVO">
+		SELECT M_NiCK FROM MEMBER WHERE M_NiCK = #{m_nick}
+	</select>
+ 	
+ 	<insert id="insertMember" parameterType="memberVO">
+ 		INSERT INTO MEMBER(M_ID, M_NAME, M_DATE, M_EMAIL, M_NICK, M_PW) VALUES(#{m_id}, #{m_name}, #{m_date}, #{m_email}, #{m_nick}, #{m_pw} )
+ 	</insert>
+     
+     login.do
+     <select id="selectLogin" resultType="loginVO" >
+     	SELECT M_NUM FROM MEMBER where m_id = #{m_id} and m_pw = #{m_pw}
+     </select> -->
+</mapper>
+
